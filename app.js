@@ -30,8 +30,12 @@ app.get('/log', async (_req, res) => {
     }
   });
 
+const port = 4001;
+
 const path = require('path');
+
 app.use('/static', express.static(path.join(__dirname, 'public')));
 
-console.log("Starting...");
-app.listen(4001, '0.0.0.0');
+app.listen(port, '0.0.0.0', () => {
+  console.log("Starting on port", port);
+});
